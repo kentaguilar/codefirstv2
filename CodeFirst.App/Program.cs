@@ -30,7 +30,7 @@ namespace CodeFirst.App
             {
                 mainContext.Students.Add(new Student
                 {
-                    Name = "Joyce Ganda",
+                    Name = "Leng Ganda",
                     Status = "Active"
                 });
 
@@ -57,7 +57,7 @@ namespace CodeFirst.App
         {
             using (var mainContext = new AppContextMain())
             {
-                var student = mainContext.Students.Where(x => x.Id == 1).FirstOrDefault();
+                var student = mainContext.Students.Where(x => x.Id == 7).FirstOrDefault();
 
                 Console.WriteLine("{0} - {1}", student.Id, student.Name);
             }
@@ -67,11 +67,15 @@ namespace CodeFirst.App
         {
             using (var mainContext = new AppContextMain())
             {
-                var student = mainContext.Students.FirstOrDefault(x => x.Id == 5);
-                mainContext.Students.Remove(student);
-                mainContext.SaveChanges();
+                var student = mainContext.Students.FirstOrDefault(x => x.Id == 7);
 
-                Console.WriteLine("Student Deleted");
+                if (student != null)
+                {
+                    mainContext.Students.Remove(student);
+                    mainContext.SaveChanges();
+
+                    Console.WriteLine("Student Deleted");
+                }
             }
         }
     }

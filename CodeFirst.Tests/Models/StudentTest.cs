@@ -16,7 +16,7 @@ namespace CodeFirst.Tests.Models
             {
                 mainContext.Students.Add(new Student
                 {                    
-                    Name = "Joyce Pring",
+                    Name = "Marc Griffin",
                     Status = "Active"
                 });
 
@@ -42,7 +42,7 @@ namespace CodeFirst.Tests.Models
         {
             using (var mainContext = new AppContextMain())
             {
-                var student = mainContext.Students.Where(x => x.Id == 2).FirstOrDefault();
+                var student = mainContext.Students.Where(x => x.Id == 6).FirstOrDefault();
 
                 Assert.AreEqual("test name", student.Name);
             }
@@ -53,7 +53,7 @@ namespace CodeFirst.Tests.Models
         {
             using (var mainContext = new AppContextMain())
             {
-                var student = mainContext.Students.FirstOrDefault(x => x.Id == 4);
+                var student = mainContext.Students.FirstOrDefault(x => x.Id == 6);
                 mainContext.Students.Remove(student);
                 mainContext.SaveChanges();
 
